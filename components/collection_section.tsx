@@ -148,7 +148,7 @@ export default function CollectionSection({ data }: Props) {
     )
   );
   return (
-    <Container py={"lg"}>
+    <div>
       <Grid>
         <Grid.Col span={{ base: 12, md: 12, lg: 3 }}>
           <Text size="22px" fw={600} c="#333333">
@@ -182,6 +182,6 @@ export default function CollectionSection({ data }: Props) {
           )}
         </Grid.Col>
       </Grid>
-    </Container>
+    </div>
   );
 }

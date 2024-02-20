@@ -1,6 +1,6 @@
 "use client";
 import { useRef } from "react";
-import { Image } from "@mantine/core";
+import { Container, Image } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { useHomeService } from "../services/services";
@@ -34,14 +34,21 @@ export default function Banner() {
 
   const rows = banners.map((row, index) => (
     <Carousel.Slide key={index}>
-      <Image src={row.pcImageUrl} alt={row.title} />
+      <Container>
+        <Image
+          src={matches ? row.pcImageUrl : row.mobileImageUrl}
+          alt={row.title}
+          w={"100%"}
+          h={"auto"}
+        />
+      </Container>
     </Carousel.Slide>
   ));
   return (
     <Carousel
       withIndicators
       slideSize={matches ? "50%" : "100%"}
-      slideGap="xl"
+      // slideGap="md"
       loop
       controlsOffset={matches ? "27%" : "5%"}
       plugins={[autoplay.current]}
